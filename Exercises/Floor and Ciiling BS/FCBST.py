@@ -12,7 +12,7 @@ def findCeilingFloor(root_node, k, floor=None, ceil=None):
 
 def findFloor(root_node, k):
     if(root_node.left == None and root_node.right == None):
-        if root_node.value < k:
+        if root_node.value <= k:
             return root_node.value
         else:
             return -1
@@ -21,17 +21,18 @@ def findFloor(root_node, k):
     if root_node.value > k:
         left = findFloor(root_node.left, k)
         if root_node.value <= k and left <= k:
+
             return left if abs(left-k) < abs(root_node.value-k) else root_node.value
         elif left <= k:
             return left
     val = findFloor(root_node.right, k)
-    return val
+    return val if abs(val-k) < abs(root_node.value-k) else root_node.value
 
 
 def findCeil(root_node, k):
     # Base Case - Leaft Node
     if(root_node.left == None and root_node.right == None):
-        if root_node.value > k:
+        if root_node.value >= k:
             return root_node.value
         else:
             return -1
@@ -57,5 +58,6 @@ root.left.right = Node(6)
 root.right.left = Node(10)
 root.right.right = Node(14)
 
-print(findCeilingFloor(root, 5))
+for i in range(1, 14):
+    print(i, "result: ", findCeilingFloor(root, i))
 # (4, 6)
