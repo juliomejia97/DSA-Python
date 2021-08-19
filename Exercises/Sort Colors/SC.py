@@ -11,4 +11,4 @@ class Solution:
 
 
 l = [2, 0, 2, 1, 1, 0]
-Solution().sortColors(l)
+print(Solution().sortColors(l))

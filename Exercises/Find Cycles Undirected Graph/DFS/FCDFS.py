@@ -8,7 +8,6 @@ class Graph:
 
     def addEdge(self, u, v):
         self.graph[u].append(v)
-        self.graph[v].append(u)
 
     def dfs(self, v: int, parent: int, visited: list) -> bool:
         # Mark visited the vertex
@@ -33,14 +32,13 @@ class Graph:
         return False
 
 
-g = Graph(5)
-g.addEdge(1, 0)
-g.addEdge(1, 2)
-g.addEdge(2, 0)
-g.addEdge(0, 3)
-g.addEdge(3, 4)
+g = Graph(20)
+g.addEdge(0, 10)
+g.addEdge(3, 18)
+g.addEdge(5, 5)
+g.addEdge(6, 11)
+g.addEdge(11, 14)
+g.addEdge(13, 1)
+g.addEdge(15, 1)
+g.addEdge(17, 4)
 print(g.haveCycle())
-g1 = Graph(3)
-g1.addEdge(0, 1)
-g1.addEdge(1, 2)
-print(g1.haveCycle())

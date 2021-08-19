@@ -1,6 +1,6 @@
 class Solution():
     def climbStairs(self, num: int) -> int:
-        return self.climbStairs_Memo(num)
+        return self.climbStairs_BU(num)
 
     def climbStairs_BU(self, num):
         M = [-1 for i in range(num+1)]
@@ -18,14 +18,12 @@ class Solution():
         if M[i] == -1:
             if i == num:
                 M[i] = 1
-                print(M)
             elif i < num:
                 oneStep = self.climbStairs_Memo_Aux(
                     num, i+1, M) if i+1 <= num else 0
                 twoStep = self.climbStairs_Memo_Aux(
                     num, i+2, M) if i+2 <= num else 0
                 M[i] = oneStep+twoStep
-                print(M)
         return M[i]
 
     def climbStairs_Naive(self, num: int, i: int) -> int:

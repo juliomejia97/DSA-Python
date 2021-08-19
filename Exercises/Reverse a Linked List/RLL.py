@@ -36,7 +36,6 @@ class ListNode(object):
         if head == None or head.next == None:
             return head
         ll = self.reverseRecursively(head.next)
-        print(head.val)
         head.next.next = head
         head.next = None
         return ll
