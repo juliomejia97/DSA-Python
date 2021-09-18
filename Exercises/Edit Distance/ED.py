@@ -35,7 +35,7 @@ def distance_BU(s1, s2):
 
 
 def distance_Memo(s1, s2):
-    M = [[math.inf for j in range(len(s2)+1)] for i in range(len(s1)+1)]
+    M = [[math.inf for _ in range(len(s2)+1)] for _ in range(len(s1)+1)]
     return distance_Memo_Aux(s1, s2, len(s1), len(s2), M)
 
 
